@@ -13,7 +13,7 @@ describe ResumeState do
     expect(app.last_name).to eq('doe')
   end
 
-  it 'goes to work experience menu' do
+  it 'asks for work experience' do
     input_sequence = ['work experience', '1', 'junior dev', '2', 'facebook', 'back to menu', 'exit']
     allow_any_instance_of(HighLine).to receive(:ask).and_return(*input_sequence)
 
