@@ -36,7 +36,10 @@ module ResumePrompt
     option = MAIN_MENU_OPTIONS.find{|opt| opt == answer.downcase}
     option = MAIN_MENU_OPTIONS[answer.to_i - 1] if answer.match /^[1-3]$/ # Check if input is between 1-3
 
-    cli.say('Invalid Option') if option.nil?
+    if option.nil?
+      cli.say('Invalid Option')
+      sleep(1)
+    end
 
     event = case option
     when 'enter name'
@@ -82,7 +85,10 @@ module ResumePrompt
     option = WORK_EXP_MENU_OPTIONS.find{|opt| opt == answer.downcase}
     option = WORK_EXP_MENU_OPTIONS[answer.to_i - 1] if answer.match /^[1-3]$/ # Check if input is between 1-3
 
-    cli.say('Invalid Option') if option.nil?
+    if option.nil?
+      cli.say('Invalid Option')
+      sleep(1)
+    end
 
     event = case option
     when 'current job position'
