@@ -14,7 +14,7 @@ describe ResumeState do
   end
 
   it 'asks for work experience' do
-    input_sequence = ['work experience', '1', 'junior dev', '2', 'facebook', 'back to menu', 'exit']
+    input_sequence = ['work experience', '1', 'junior dev', 'work experience', '2', 'facebook', 'exit']
     allow_any_instance_of(HighLine).to receive(:ask).and_return(*input_sequence)
 
     expect{ app.start }.to output(/- Company: facebook, Job Position: junior dev/).to_stdout
@@ -28,7 +28,7 @@ describe ResumeState do
   end
 
   it 'displays result on exit' do
-    input_sequence = ['1', 'john', 'doe', '2', '1', 'team lead', '2', 'ListingSpark', '3', '3']
+    input_sequence = ['1', 'john', 'doe', '2', '1', 'team lead', '2', '2', 'ListingSpark', '3']
     allow_any_instance_of(HighLine).to receive(:ask).and_return(*input_sequence)
     expect{ app.start }.to output(/john doe - Company: ListingSpark, Job Position: team lead/).to_stdout
   end

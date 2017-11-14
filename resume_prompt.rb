@@ -73,12 +73,12 @@ module ResumePrompt
 
   def ask_current_job_position
     @job_position = cli.ask "Enter Current Job Position: "
-    fire_events(:start_work_experience_current)
+    fire_events(:start)
   end
 
   def ask_current_company
     @company = cli.ask "Enter Current Company: "
-    fire_events(:start_work_experience_current)
+    fire_events(:start)
   end
 
   def go_next_within_work_menu(answer)
